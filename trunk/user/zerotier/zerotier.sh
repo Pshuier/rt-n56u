@@ -31,6 +31,9 @@ start_instance() {
 		rm -f $config_path/identity.public
 	fi
 
+#替换planet文件
+\cp /etc/storage/planet /etc/storage/zerotier/planet
+
 	add_join $(nvram get zerotier_id)
 
 	$PROG $args $config_path >/dev/null 2>&1 &
